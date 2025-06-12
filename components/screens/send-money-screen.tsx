@@ -12,8 +12,8 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 
 export default function SendMoneyScreen({ navigation }: any) {
-  const [amount, setAmount] = useState("500");
-  const [currency, setCurrency] = useState("USD");
+  const [amount, setAmount] = useState("00");
+  const [currency, setCurrency] = useState("INR");
 
   return (
     <View style={styles.outerContainer}>

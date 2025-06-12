@@ -9,6 +9,7 @@ import {
   Image,
   TextInput,
 } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function SettingsScreen({ navigation, userData }: any) {
   const [shareLink, setShareLink] = useState("https://pay.example.com");
@@ -85,15 +86,20 @@ export default function SettingsScreen({ navigation, userData }: any) {
           style={styles.tabBtn}
           onPress={() => navigation.replace("Dashboard")}
         >
+          <Ionicons name="home" size={24} color="#f7ce45" />
           <Text style={styles.tabActive}>Home</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.tabBtnCenter}>
-          <Text style={styles.tabCenterIcon}>↗️</Text>
+        <TouchableOpacity
+          style={styles.tabBtnCenter}
+          onPress={() => navigation.navigate("SendMoney")}
+        >
+          <Ionicons name="arrow-up" size={24} color="#fff" />
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.tabBtn}
           onPress={() => navigation.replace("Profile")}
         >
+          <Ionicons name="person" size={24} color="#f7ce45" />
           <Text style={styles.tabActive}>Profile</Text>
         </TouchableOpacity>
       </View>
@@ -110,7 +116,7 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     paddingTop: 40,
-    },
+  },
   headerRow: {
     flexDirection: "row",
     alignItems: "center",
@@ -133,7 +139,7 @@ const styles = StyleSheet.create({
   headerSearch: {
     fontSize: 22,
     color: "#f7ce45",
-        },
+  },
   logo: {
     fontSize: 28,
     fontWeight: "bold",
@@ -148,7 +154,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginBottom: 20,
     padding: 16,
-    },
+  },
   profileImage: {
     width: 56,
     height: 56,
@@ -174,7 +180,7 @@ const styles = StyleSheet.create({
     color: "#f7ce45",
     fontSize: 18,
     marginLeft: 8,
-        },
+  },
   sectionBox: {
     backgroundColor: "transparent",
     marginHorizontal: 20,
@@ -192,7 +198,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 12,
     overflow: "hidden",
-        },
+  },
   sectionBtn: {
     backgroundColor: "#44444a",
     borderRadius: 8,
@@ -271,30 +277,26 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#23232a",
     paddingVertical: 10,
-    justifyContent: "space-around",
-    alignItems: "center",
+    paddingHorizontal: 20,
+    borderTopWidth: 1,
+    borderTopColor: "#35353a",
   },
   tabBtn: {
     flex: 1,
     alignItems: "center",
+    justifyContent: "center",
+  },
+  tabBtnCenter: {
+    width: 60,
+    height: 60,
+    backgroundColor: "#f7ce45",
+    borderRadius: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: -20,
   },
   tabActive: {
     color: "#f7ce45",
-    fontWeight: "bold",
-    fontSize: 18,
-  },
-  tabBtnCenter: {
-    backgroundColor: "#f7ce45",
-    borderRadius: 30,
-    width: 60,
-    height: 60,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: -30,
-  },
-  tabCenterIcon: {
-    color: "#23232a",
-    fontSize: 32,
-    fontWeight: "bold",
+    marginTop: 4,
   },
 });

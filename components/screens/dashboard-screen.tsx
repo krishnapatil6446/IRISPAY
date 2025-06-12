@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import type { Screen } from "@/app/page";
+import { Ionicons } from "@expo/vector-icons";
 
 interface DashboardScreenProps {
   navigation: any;
@@ -139,15 +140,20 @@ export default function DashboardScreen({
           style={styles.tabBtn}
           onPress={() => navigation.replace("Dashboard")}
         >
+          <Ionicons name="home" size={24} color="#f7ce45" />
           <Text style={styles.tabActive}>Home</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.tabBtnCenter}>
-          <Text style={styles.tabCenterIcon}>↗️</Text>
+        <TouchableOpacity
+          style={styles.tabBtnCenter}
+          onPress={() => navigation.navigate("SendMoney")}
+        >
+          <Ionicons name="arrow-up" size={24} color="#fff" />
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.tabBtn}
           onPress={() => navigation.replace("Profile")}
         >
+          <Ionicons name="person" size={24} color="#f7ce45" />
           <Text style={styles.tabActive}>Profile</Text>
         </TouchableOpacity>
       </View>
@@ -285,26 +291,28 @@ const styles = StyleSheet.create({
   },
   tabBar: {
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: 10,
     backgroundColor: "#23232a",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderTopWidth: 1,
+    borderTopColor: "#35353a",
   },
   tabBtn: {
     flex: 1,
     alignItems: "center",
+    justifyContent: "center",
   },
   tabBtnCenter: {
-    flex: 1,
+    width: 60,
+    height: 60,
+    backgroundColor: "#f7ce45",
+    borderRadius: 30,
     alignItems: "center",
+    justifyContent: "center",
+    marginTop: -20,
   },
   tabActive: {
     color: "#f7ce45",
-    fontWeight: "bold",
-    fontSize: 16,
-  },
-  tabCenterIcon: {
-    fontSize: 28,
-    color: "#f7ce45",
+    marginTop: 4,
   },
 });
